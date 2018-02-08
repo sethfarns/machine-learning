@@ -13124,7 +13124,7 @@ Overall, the agent performed quite terribly, with an 'F' both in safety rating a
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> The size of the state space would be 1,000. I think the driving agent could learn a policy for each possible state within a reasonable number of training trials, as it would not take long to go through well over 1,000 actions.</p>
+<p><strong>Answer:</strong> The size of the state space would be 384 (3 <em> 4 </em> 4 <em> 4 </em> 2). I think the driving agent could learn a policy for each possible state within a reasonable number of training trials, as it would not take long to go through under 400 possible states.</p>
 
 </div>
 </div>
@@ -17154,7 +17154,8 @@ $$ \epsilon_{t+1} = \epsilon_{t} - 0.001 $$</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-One of the characteristics is the changing environment, both the changing traffic lights and the changing positions and directions of the cars. Because of these random changes, there is no way to know what the future rewards will be.</p>
+One of the characteristics is the changing environment, both the changing traffic lights and the changing positions and directions of the cars. The destination also changes with each trial run. Because of these random changes, there is no way to know what the future rewards will be.</p>
+<p>As for the agent itself, with each state it only knows what the situations are around it (other cars and traffic lights), and which direction it needs to go. It does not know anything about the potential states and rewards beyond that moment, so it's impossible to calculate the expected value of future rewards.</p>
 
 </div>
 </div>

@@ -82,9 +82,7 @@ class LearningAgent(Agent):
         ###########
         # Calculate the maximum Q-value of all actions for a given state
 
-        allQ = [val for key,val in self.Q[state].items()]
-
-        maxQ = max(allQ)
+        maxQ = max(self.Q[state].values())
 
         return maxQ
 
@@ -152,9 +150,9 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         # actual value = immediate reward + discount factor * expected future value
 
-        old_reward = (1 - self.alpha) * reward
-        
-        self.Q[state][action] = old_reward + (self.alpha * reward)
+        if self.learning:
+            old_reward = (1 - self.alpha) * reward
+            self.Q[state][action] = old_reward + (self.alpha * reward)
 
 
     def update(self):
